@@ -31,12 +31,18 @@
             android:label="@string/title_activity_friends_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.chat.HomePage"
-            android:label="@string/title_activity_home_page"
+            android:name=".HomePage"
+            android:label="@string/title_activity_home_page2"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ConversationActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".ConversationsListActivity"
+            android:label="@string/title_activity_conversations_list"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".HomePage"
-            android:label="@string/title_activity_home_page"
+            android:name=".GroupsListActivity"
+            android:label="@string/title_activity_groups_list"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

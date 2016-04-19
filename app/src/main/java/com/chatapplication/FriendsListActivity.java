@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -40,6 +41,14 @@ public class FriendsListActivity extends AppCompatActivity {
         ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, friends);
         ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(FriendsListActivity.this, ConversationActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

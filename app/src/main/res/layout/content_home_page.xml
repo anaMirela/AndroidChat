@@ -9,8 +9,8 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.chatapplication.HomePage"
-    tools:showIn="@layout/activity_home_page">
+    tools:context=".HomePage"
+    tools:showIn="@layout/app_bar_home_page">
 
     <TextView
         android:id="@+id/info"
@@ -26,13 +26,5 @@
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/info"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Friends List"
-        android:id="@+id/friendsList"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
