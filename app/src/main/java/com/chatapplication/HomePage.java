@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
+import com.facebook.FacebookSdk;
 import com.facebook.GraphRequest;
 import com.facebook.GraphRequestAsyncTask;
 import com.facebook.GraphResponse;
@@ -50,8 +51,8 @@ public class HomePage extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // Intent intent = getIntent():
-        // intent.getStringExtra("profileName");
-        // intent.getStringExtra("userId");
+       // intent.getStringExtra("profileName");
+        Log.i("intent" ,getIntent().getStringExtra("userId"));
         info = (TextView) findViewById(R.id.info);
         profileImgView = (ImageView) findViewById(R.id.profile_img);
 
@@ -116,6 +117,8 @@ public class HomePage extends AppCompatActivity
                             try {
                                 JSONArray rawName = response.getJSONObject().getJSONArray("data");
                                 intent.putExtra("jsondata", rawName.toString());
+                                Log.i("json", rawName.toString());
+                                intent.putExtra("userId", getIntent().getStringExtra("userId"));
                                 startActivity(intent);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -129,6 +132,9 @@ public class HomePage extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_groups) {
             Intent intent = new Intent(HomePage.this, GroupsListActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(HomePage.this, MainActivity.class);
             startActivity(intent);
         }
 
