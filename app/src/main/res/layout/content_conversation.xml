@@ -8,9 +8,10 @@
         android:layout_width="wrap_content"
         android:id="@+id/messagesList"
         android:layout_gravity="center_horizontal"
-        android:layout_height="400dp"
+        android:layout_height="450dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="30dp"/>
+        android:layout_above="@+id/messageToBeSent"
+        android:layout_alignParentTop="true" />
 
     <EditText
         android:layout_width="250dp"

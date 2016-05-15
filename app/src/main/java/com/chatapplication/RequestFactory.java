@@ -2,13 +2,17 @@ package com.chatapplication;
 
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -17,7 +21,7 @@ import java.util.Map;
  */
 public class RequestFactory {
 
-    public static final String SERVER_URL = "http://192.168.0.100/server_chat/index.php";
+    public static final String SERVER_URL ="http://192.168.0.100/server_chat/index.php"; //"http://192.168.0.191/server_chat/index.php";
 
     public InputStream createGetRequest(String query) {
         HttpURLConnection con;
@@ -58,6 +62,11 @@ public class RequestFactory {
         params.put("senderid", senderId);
         params.put("receiverid", receiverId);
         params.put("msg_content", msg);
+
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
+        Log.i("time", timeStamp);
+
+        params.put("timestamp", timeStamp);
 
         StringBuilder postData = new StringBuilder();
         try {

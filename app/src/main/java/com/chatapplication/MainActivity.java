@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         facebookSDKInitialize();
+
         setContentView(R.layout.activity_main);
 
         requestFactory = new RequestFactory();
@@ -80,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     protected void facebookSDKInitialize() {
-
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
     }

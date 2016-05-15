@@ -37,6 +37,7 @@ public class HomePage extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //FacebookSdk.sdkInitialize(getApplicationContext());
         setContentView(R.layout.activity_home_page);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,10 +57,10 @@ public class HomePage extends AppCompatActivity
         info = (TextView) findViewById(R.id.info);
         profileImgView = (ImageView) findViewById(R.id.profile_img);
 
-        Profile profile = Profile.getCurrentProfile();
-        info.setText("Welcome " + profile.getName());
+        //Profile profile = Profile.getCurrentProfile();
+        info.setText("Welcome " +  getIntent().getStringExtra("profileName"));
 
-        String profileImgUrl = "https://graph.facebook.com/" + profile.getId() + "/picture?type=large";
+        String profileImgUrl = "https://graph.facebook.com/" + getIntent().getStringExtra("userId") + "/picture?type=large";
         Log.i("profile img", profileImgUrl);
         Glide.with(HomePage.this)
                 .load(profileImgUrl)
